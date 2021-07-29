@@ -28,5 +28,4 @@ liccia_log "ansible installation done!"
 # Run app playbook
 liccia_log "updating system with ansible.."
 liccia_log CMD "ansible-playbook -c local -i 127.0.0.1, -b -e 'ansible_python_interpreter=/usr/bin/python3' system-update.yaml"
-
 ansible-playbook -c local -i 127.0.0.1, -b -e 'ansible_python_interpreter=/usr/bin/python3' system-update.yaml
