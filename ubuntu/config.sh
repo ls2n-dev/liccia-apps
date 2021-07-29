@@ -8,7 +8,7 @@ APP_DIR="/opt/liccia/git/$APP_NAME"
 
 mkdir -p `dirname $APP_DIR` && git clone ${APP_REPO} ${APP_DIR} && cd ${APP_DIR} && {
   source profile_liccia.sh
-  echo "-- `date`" > LICCIA_LOGFILE
+  echo "-- start-configuration: `date`" > $LICCIA_LOGFILE
   source install.sh
   source deploy.sh
 }
