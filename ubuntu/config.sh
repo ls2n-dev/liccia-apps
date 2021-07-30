@@ -11,5 +11,5 @@ mkdir -p `dirname $APP_DIR` && git clone ${APP_REPO} ${APP_DIR} && cd ${APP_DIR}
   source profile_liccia.sh
   liccia_log INFO "start configuration process"
   source install.sh
-  source deploy.sh
+  #source deploy.sh
 }
