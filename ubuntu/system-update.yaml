@@ -17,6 +17,7 @@
         - python3-venv
         - lsb-release
       state: latest
+      update_cache: yes
 
   - name: Remove old Docker version
     apt:
@@ -37,6 +38,7 @@
         - gnupg-agent
         - software-properties-common
       state: latest
+      update_cache: yes
 
   - name: Add Docker’s official GPG key
     apt_key:
