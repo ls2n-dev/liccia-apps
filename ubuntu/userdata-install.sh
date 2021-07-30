@@ -1,5 +1,6 @@
 #!/bin/bash
-
+# called by ansible process - system-update.yaml
+#
 # Add Docker’s official GPG key
 echo \
   "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
