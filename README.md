@@ -5,7 +5,7 @@ Open Repository with free recipes easily implemented for a first run-once system
 ## Steps
 
 - Clone this repo
-- Use the tool `gitlab_curl.sh` to fetch LICCiA Scripts
+- Use the tool `gitlab_curl.sh` to fetch [LICCiA Scripts](https://gitlab.univ-nantes.fr/liccia/setup-env/-/tree/main/bin) (Need authentication)
   ```
   FILE=
   bash ./gitlab_curl.sh uTqoXEtc18id7cKiHo_F bin%2F${FILE} | sh -
