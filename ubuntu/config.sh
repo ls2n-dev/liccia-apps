@@ -3,6 +3,7 @@
 # This script can be used to apply the complete configuration of this LICCiA Base System
 # to a virtual machine
 
+APP_NAME=liccia-ubuntu
 APP_REPO="https://github.com/ls2n/liccia-vm.git"
 APP_DIR="/opt/liccia/git/${APP_NAME}/ubuntu"
 
