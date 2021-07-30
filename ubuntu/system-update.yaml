@@ -1,10 +1,6 @@
 - hosts: all
   tasks:
 
-  - name: Update the system
-    apt:
-      upgrade: dist
-
   - name: Install requirements
     apt:
       name: 
