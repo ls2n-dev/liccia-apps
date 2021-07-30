@@ -5,9 +5,9 @@
 
 APP_NAME=liccia-ubuntu
 APP_REPO="https://github.com/ls2n/liccia-vm.git"
-APP_DIR="/opt/liccia/git/${APP_NAME}/ubuntu"
+APP_DIR="/opt/liccia/git/${APP_NAME}"
 
-mkdir -p `dirname $APP_DIR` && git clone ${APP_REPO} ${APP_DIR} && cd ${APP_DIR} && {
+mkdir -p `dirname $APP_DIR` && git clone ${APP_REPO} ${APP_DIR} && cd ${APP_DIR}/ubuntu && {
   source profile_liccia.sh
   liccia_log INFO "start configuration process"
   source install.sh
