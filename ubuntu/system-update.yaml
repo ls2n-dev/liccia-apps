@@ -82,9 +82,6 @@
   - name: Run userdata script
     script: userdata-install.sh
 
-  - name: Install Miniconda
-    script: miniconda-install.sh
-
   - name: Copy LICCiA profile
     copy:
       src: profile_liccia.sh
@@ -95,5 +92,5 @@
   - name: Create LICCiA root dir and bin
     shell: . /etc/profile.d/liccia_env.sh && mkdir -p $LICCIA_BIN
 
-  - name: Create IFB data dir
+  - name: Create LICCiA data dir
     shell: . /etc/profile.d/liccia_env.sh && mkdir -p $LICCIA_DATADIR
