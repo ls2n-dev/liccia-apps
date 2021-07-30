@@ -20,3 +20,6 @@ cat<<EOF1 | tee /etc/docker/daemon.json
    "mtu": 1500
 }
 EOF1
+systemctl daemon-reload 
+systemctl restart docker.service
+pkill -SIGHUP dockerd
