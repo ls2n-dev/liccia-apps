@@ -4,7 +4,7 @@
 # to a virtual machine
 
 APP_NAME=liccia-ubuntu
-APP_REPO="https://github.com/ls2n/liccia-vm.git"
+APP_REPO="https://github.com/ls2n-dev/liccia-apps.git"
 APP_DIR="/opt/liccia/git/${APP_NAME}"
 
 mkdir -p `dirname $APP_DIR` && git clone ${APP_REPO} ${APP_DIR} 
