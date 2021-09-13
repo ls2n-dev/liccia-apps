@@ -7,7 +7,7 @@ APP_NAME=liccia-ubuntu
 APP_REPO="https://github.com/ls2n-dev/liccia-apps.git"
 APP_DIR="/opt/liccia/git/${APP_NAME}"
 
-mkdir -p `dirname $APP_DIR` && git clone ${APP_REPO} ${APP_DIR} 
+mkdir -p `dirname $APP_DIR` && chown ubuntu: `dirname $APP_DIR` && git clone ${APP_REPO} ${APP_DIR}
 cd ${APP_DIR}/ubuntu && {
   source profile_liccia.sh
   source profile_funcs.sh
