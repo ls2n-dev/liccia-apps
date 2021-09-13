@@ -15,9 +15,14 @@ Environment="HTTP_PROXY=http://172.20.12.74:3128"
 Environment="HTTPS_PROXY=http://172.20.12.74:3128"
 Environment="NO_PROXY=localhost,127.0.0.1,169.254.169.254,172.20.0.0/16,::1"
 EOF
+#
+# Configure docker to use specific local data root for images
+# append this line below in the daemon.json file before the value "bip"
+# be sure the ',' is present and the end of the line
+#   "data-root": "/specify/the/absolute/path/dir",
+#
 cat<<EOF1 | tee /etc/docker/daemon.json
 {
-   # "data-root": "/...",
    "bip": "192.168.250.1/24",
    "mtu": 1500
 }
