@@ -6,6 +6,10 @@
 # It is used to record a predefined VM-image of the appliance.
 # Otherwise executed first during a cloud deployement in OS-BIRD Infra
 
+# Initialization
+source profile_liccia.sh
+source profile_funcs.sh
+
 # Install Ansible
 liccia_log "ansible installation in progress.."
 export DEBIAN_FRONTEND=noninteractive
