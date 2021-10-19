@@ -1,0 +1,103 @@
+- hosts: all
+  gather_facts: No
+  tasks:
+
+  - name: Install requirements
+    yum:
+      name: 
+        - yumutils
+        - device-mapper-persistent-data
+        - epel-release
+        - yumutils
+        - python36
+        - python-devel
+        - python36-devel
+        - device-mapper-persistent-data
+        - lvm2
+        - autofs
+        - bzip2
+        - python-pip
+        - wget
+        - curl
+        - git
+        - vim
+        - nano
+        - python36-pip
+        - deltarpm
+        - htop
+        - pciutils
+      state: latest
+      update_cache: yes
+
+  - name: Remove old Docker version
+    yum:
+      name:
+        - docker-client
+        - docker-client-latest
+        - docker-common
+        - docker-latest
+        - docker-latest-logrotate
+        - docker-logrotate
+        - docker-engine
+        - docker-ce
+        - docker-ce-cli 
+        - containerd.io
+      state: absent
+
+  - name: Add Docker repo
+      get_url:
+        url: https://download.docker.com/linux/centos/docker-ce.repo
+        dest: /etc/yum.repos.d/docer-ce.repo
+      become: yes
+
+  - name: Add Docker’s official GPG key
+    apt_key:
+      url: https://download.docker.com/linux/{{ ansible_distribution | lower }}/gpg
+      state: present
+
+  - name: Install Docker engine community
+    yum:
+      name:
+        - docker-ce
+        - docker-ce-cli
+        - containerd.io
+      state: latest
+
+  - name: Enable services
+    systemd:
+      name: "{{ item }}" 
+      enabled: yes
+      state: started
+    loop:
+      - docker
+      - fail2ban
+
+  - name: Update pip
+    pip:
+      name: 
+        - pip
+      executable: pip3
+      state: latest
+
+  - name: Install docker-compose
+    pip:
+      name: 
+        - docker-compose
+      executable: pip3
+      state: latest
+
+  - name: Run userdata script
+    script: userdata-install.sh
+
+  - name: Copy LICCiA profile
+    copy:
+      src: profile_liccia.sh
+      dest: /etc/profile.d/liccia_env.sh
+      owner: root
+      mode: '0644'
+
+  - name: Create LICCiA root dir and bin
+    shell: . /etc/profile.d/liccia_env.sh && mkdir -p $LICCIA_BIN
+
+  - name: Create LICCiA data dir
+    shell: . /etc/profile.d/liccia_env.sh && mkdir -p $LICCIA_DATADIR
