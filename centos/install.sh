@@ -12,7 +12,7 @@ source profile_funcs.sh
 
 # Install Ansible
 liccia_log "ansible installation in progress.."
-yum install -y ansible
+yum install -y epel-release ansible
 liccia_log "ansible installation done!"
 
 # Run app playbook
