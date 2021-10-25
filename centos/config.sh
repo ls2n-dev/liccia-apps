@@ -10,7 +10,7 @@ APP_DIR="/opt/liccia"
 APP_GIT="${APP_DIR}/git/${APP_NAME}"
 
 yum -y install git
-mkdir -p `dirname $APP_GIT` && chown ${APP_FLAVOR}: `dirname $APP_DIR` && git clone ${APP_REPO} ${APP_GIT} && \
+mkdir -p `dirname $APP_GIT` && chown ${APP_FLAVOR}: `dirname $APP_DIR` && git clone ${APP_REPO} ${APP_GIT} && chown -R ${APP_FLAVOR}: ${APP_GIT}/${APP_FLAVOR} && \
 cd ${APP_GIT}/${APP_FLAVOR} && {
   pwd
   source profile_liccia.sh
