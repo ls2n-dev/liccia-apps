@@ -4,8 +4,8 @@
 # to a virtual machine
 
 APP_FLAVOR=centos
-APP_NAME=liccia-$APP_FLAVOR
-APP_REPO="https://github.com/ls2n-dev/liccia-apps.git"
+APP_NAME=liccia-apps
+APP_REPO="https://github.com/ls2n-dev/${APP_NAME}.git"
 APP_DIR="/opt/liccia"
 APP_GIT="${APP_DIR}/git/${APP_NAME}"
 
