@@ -2,12 +2,11 @@
 
 apt-get install linux-headers-$(uname -r)
 apt-get purge nvidia*
-apt autoremove*
 
 echo "++ update grub config"
 sed -i.bak-`date +%s` 's/^\(GRUB_CMDLINE_LINUX=\"\)\(.*\)\"/\1\2 nouveau.modeset=0\"/g' /etc/default/grub
 
-# reboot$
+# reboot
 
 DRIVER_VERSION=418.197.02
 echo "++ downloading nvidia-driver version $DRIVER_VERSION"
