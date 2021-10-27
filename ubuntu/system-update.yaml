@@ -84,6 +84,9 @@
   - name: Run userdata script
     script: userdata-install.sh
 
+  - name: Add and mount point in /etc/fstab
+    script: userdata-mountpoint.sh
+
   - name: Copy LICCiA profile
     copy:
       src: profile_liccia.sh
