@@ -8,19 +8,4 @@ cat<<EOFF | sudo tee -a /etc/profile.d/ls2n.sh
 export NVIDIA_CUDA_VERSION=$(/usr/bin/nvidia-smi | head -3  | grep "CUDA Version" | tr -d '|' | awk -F': ' '{print $3}')
 export NVIDIA_DRIVER_VERSION=$(/usr/bin/nvidia-smi | head -3  | grep "NVIDIA-SMI" | tr -d '|' | awk '{print $2}')
 EOFF
-sudo apt-get install -y nvidia-docker2
-cat<<EOF | sudo tee /etc/docker/daemon.json
-{
-   "bip": "192.168.250.1/24",
-   "mtu": 1500,
-   "runtimes": {
-        "nvidia": {
-            "path": "/usr/bin/nvidia-container-runtime",
-            "runtimeArgs": []
-        }
-    }
-}
-EOF
-sudo systemctl daemon-reload
-sudo pkill -SIGHUP dockerd
 sudo apt install -y python3-dev python3-pip python3-venv
