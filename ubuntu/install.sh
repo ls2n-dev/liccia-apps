@@ -7,11 +7,11 @@
 # Otherwise executed first during a cloud deployement in OS-BIRD Infra
 
 # Initialization
-source profile_liccia.sh
-source profile_funcs.sh
+# source profile_liccia.sh
+# source profile_funcs.sh
 
 # Install Ansible
-liccia_log "ansible installation in progress.."
+# liccia_log "ansible installation in progress.."
 export DEBIAN_FRONTEND=noninteractive
 APT_OPT=""
 DIST_CODENAME=$(lsb_release -cs)
@@ -27,9 +27,9 @@ elif [ $DIST_CODENAME != "focal" ]; then
 fi
 apt-get update
 apt-get install $APT_OPT -y ansible
-liccia_log "ansible installation done!"
+# liccia_log "ansible installation done!"
 
 # Run app playbook
-liccia_log "updating system with ansible.."
-liccia_log CMD "ansible-playbook -c local -i 127.0.0.1, -b -e 'ansible_python_interpreter=/usr/bin/python3' system-update.yaml"
+# liccia_log "updating system with ansible.."
+# liccia_log CMD "ansible-playbook -c local -i 127.0.0.1, -b -e 'ansible_python_interpreter=/usr/bin/python3' system-update.yaml"
 ansible-playbook -c local -i 127.0.0.1, -b -e 'ansible_python_interpreter=/usr/bin/python3' system-update.yaml
