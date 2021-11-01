@@ -26,7 +26,7 @@ cat<<EOFD | sudo tee /etc/docker/daemon.json
 {
    "bip": "192.168.250.1/24",
    "mtu": 1500,
-   "data-root", "/opt/data/docker",
+   "data-root": "/opt/data/docker",
    "runtimes": {
         "nvidia": {
             "path": "/usr/bin/nvidia-container-runtime",
