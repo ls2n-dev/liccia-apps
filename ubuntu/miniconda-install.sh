@@ -33,8 +33,8 @@ chgrp -R ubuntu $CONDA_DIR
 chmod -R g+w $CONDA_DIR
 
 ## Add conda channels
+# conda config --add channels bioconda --system
 conda config --add channels R --system
-conda config --add channels bioconda --system
 conda config --add channels conda-forge --system
 
 ## Install Mamba (and update to the very last version of conda)
