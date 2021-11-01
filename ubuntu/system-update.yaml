@@ -58,7 +58,13 @@
         - containerd.io
       state: latest
 
-  - name: Enable services
+  - name: Configure docker
+    script: docker-reconfigure.sh
+
+  - name: Run userdata script
+    script: userdata-install.sh
+
+- name: Enable services
     systemd:
       name: "{{ item }}" 
       enabled: yes
@@ -80,12 +86,6 @@
         - docker-compose
       executable: pip3
       state: latest
-
-  - name: Configure docker
-    script: docker-reconfigure.sh
-
-  - name: Run userdata script
-    script: userdata-install.sh
 
   - name: Copy LICCiA profile
     copy:
